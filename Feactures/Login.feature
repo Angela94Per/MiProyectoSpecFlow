@@ -7,5 +7,5 @@ Feature: Login Functionality
     Given I navigate to the login page
     When I enter valid credentials
     And I click the login button
-    Then I should remain on the main page after login   
+    Then I should see the main layout loaded
 

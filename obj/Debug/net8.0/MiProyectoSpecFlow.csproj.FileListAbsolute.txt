@@ -169,3 +169,4 @@ C:\Users\arcan\MiProyectoSpecFlow\obj\Debug\net8.0\MiProyectoSpecFlow.pdb
 C:\Users\arcan\MiProyectoSpecFlow\obj\Debug\net8.0\MiProyectoSpecFlow.genruntimeconfig.cache
 C:\Users\arcan\MiProyectoSpecFlow\obj\Debug\net8.0\ref\MiProyectoSpecFlow.dll
 C:\Users\arcan\MiProyectoSpecFlow\bin\Debug\net8.0\SeleniumExtras.WaitHelpers.dll
+C:\Users\arcan\MiProyectoSpecFlow\obj\Debug\net8.0\MiProyectoSpecFlow.sourcelink.json

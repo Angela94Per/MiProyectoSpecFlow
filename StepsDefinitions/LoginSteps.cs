@@ -52,23 +52,29 @@ namespace MiProyectoSpecFlow.Steps
 
         [Then(@"I should see the main layout loaded")]
         public void ThenIShouldSeeTheMainLayoutLoaded()
-
-       {
-    var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
-
-    // Esperar que el elemento con id "wrapper" esté presente y visible
-    var wrapper = wait.Until(d =>
-    {
-        try
+        
         {
-            var element = d.FindElement(By.Id("page-top"));
-            return element.Displayed ? element : null;
-        }
-        catch (NoSuchElementException)
-        {
-            return null;
-        }
-    }); 
+            Console.WriteLine(">> Verificando carga de layout principal...");
+
+            var wait = new WebDriverWait(driver, TimeSpan.FromSeconds(20));
+
+            // Esperar que el elemento con id "wrapper" esté presente y visible
+            var wrapper = wait.Until(d =>
+            {
+                try
+                {
+                    var element = d.FindElement(By.Id("page-top"));
+                    return element.Displayed ? element : null;
+                }
+                catch (NoSuchElementException)
+                {
+                    return null;
+                }
+            });
+            
+            var pageTop = driver.FindElement(By.Id("wrapper"));
+
+            Assert.IsTrue(pageTop.Displayed, "El 'body' con id 'page-top' no se encuentra.");
 
     }
    } 
