@@ -3,7 +3,6 @@ using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
 using TechTalk.SpecFlow;
 using NUnit.Framework;
-using MiProyectoSpecFlow.Pages;
 using System.Threading;
 using OpenQA.Selenium.Support.UI;
 
