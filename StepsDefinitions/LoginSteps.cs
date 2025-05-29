@@ -1,3 +1,23 @@
+// -----------------------------------------------------------------------------
+// Archivo      : LoginSteps.cs
+// Descripción  : [El archivo implementa pruebas de comportamiento (BDD) para verificar el login en una aplicación web, con estos pasos:
+//                  [BeforeScenario] Setup(): Inicia el navegador Chrome y configura la página de login antes de cada escenario.
+//                  [AfterScenario] TearDown(): Cierra el navegador después del escenario.
+//                  Given I navigate to the login page: Navega a la URL del login y verifica que se haya cargado correctamente.
+//                  When I enter valid credentials: Ingresa el usuario y la contraseña válidos.
+//                  When I click the login button: Hace clic en el botón de login.
+//                  Then I should see the main layout loaded: Verifica que la página principal del sistema se haya cargado correctamente (buscando un elemento con id page-top y luego wrapper).]
+// Autor        : [Nombre del autor original]
+// Fecha creación: [26/05/2025]
+// 
+// Historial de cambios:
+// Fecha        | Autor             | Descripción
+// -------------|------------------|--------------------------------------------
+// 10/04/2024   | Juan Pérez        | Creación del archivo y lógica principal
+// 15/05/2024   | Ana Gómez         | Corrección de bugs en el método X
+// 28/05/2025   | Carlos Méndez     | Mejora de rendimiento y refactorización
+// -----------------------------------------------------------------------------
+
 using System;
 using OpenQA.Selenium;
 using OpenQA.Selenium.Chrome;
