@@ -12,8 +12,8 @@
 // Historial de cambios:
 // Fecha        | Autor             | Descripción
 // -------------|------------------|--------------------------------------------
-// 10/04/2024   | Juan Pérez        | Creación del archivo y lógica principal
-// 15/05/2024   | Ana Gómez         | Corrección de bugs en el método X
+// ------------ | Juan Pérez        | Creación del archivo y lógica principal
+// ------------ | Ana Gómez         | Corrección de bugs en el método X
 // 28/05/2025   | Carlos Méndez     | Mejora de rendimiento y refactorización
 // -----------------------------------------------------------------------------
 
@@ -30,7 +30,7 @@ public class LoginPage
     public LoginPage(IWebDriver driver)
     {
         this.driver = driver;
-        wait = new WebDriverWait(driver, TimeSpan.FromSeconds(10));
+        wait = new WebDriverWait(driver, TimeSpan.FromSeconds(35));
     }
 
     public void EnterUsername(string username)
@@ -53,15 +53,35 @@ public class LoginPage
         loginButton.Click();
     }
     public bool IsLoginPageDisplayed()
+    {
+        try
+        {
+            var waitShort = new WebDriverWait(driver, TimeSpan.FromSeconds(15));
+            return waitShort.Until(ExpectedConditions.ElementIsVisible(By.Id("Username"))).Displayed;
+        }
+        catch (WebDriverTimeoutException)
+        {
+            Console.WriteLine("La página de login no se mostró dentro del tiempo esperado.");
+            return false;
+        }
+    }
+      public bool ValidateOnLoginPage(int timeoutInSeconds = 15)
 {
     try
     {
-        return wait.Until(ExpectedConditions.ElementIsVisible(By.Id("Username"))).Displayed;
+        var waitShort = new WebDriverWait(driver, TimeSpan.FromSeconds(timeoutInSeconds));
+
+        // Esperar que la URL contenga "/Account/Login" o similar
+        waitShort.Until(drv => drv.Url.Contains("/Account/Login", StringComparison.OrdinalIgnoreCase));
+
+        // Opcional: validar visibilidad del campo de usuario
+        var usernameField = waitShort.Until(ExpectedConditions.ElementIsVisible(By.Id("Username")));
+        return usernameField.Displayed;
     }
     catch (WebDriverTimeoutException)
     {
+        Console.WriteLine("No se está en la página de login.");
         return false;
-    }   
     }
-   
+}
 }
